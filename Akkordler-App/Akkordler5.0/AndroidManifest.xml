@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:gap = "http://phonegap.com/ns/3.5"
+    package="com.muellers.akkordlerapp"
+    android:versionCode="1.6"
+    android:versionName="1.0">
+
+    <uses-sdk android:minSdkVersion="11" android:targetSdkVersion="21" />
+
+	<supports-screens android:requiresSmallestWidthDP="600" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application android:icon="graphic/icon72.png" android:label="@string/Akkordler">
+        <activity android:name=".oliverMueller" android:label="@string/Akkordler">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

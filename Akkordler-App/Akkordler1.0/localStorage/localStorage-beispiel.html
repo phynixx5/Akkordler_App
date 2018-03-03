@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Daten speichern mit localStorage</title>
+ 
+
+<link href= "style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+
+<div id="logo">
+	<a href="http://www.selfhtml5.org" target="_blank">
+		<img src="http://www.selfhtml5.org/wp-content/themes/twentyten/images/headers/self-html5-20.png" alt="selfhtml5" />
+	</a>        
+</div>
+
+<div id="wrapper">
+
+    <h1>Daten speichern mit localStorage</h1>
+    
+    
+    
+    <div id="box" style="margin: 20px auto; background: #bbb; padding: 20px;">
+        
+        Beim Anklicken des Buttons "speichern" werden die Daten lokal gespeichert und sind auch nach dem Schließen des Fensters weiterhin zur Verfügung
+        
+        <h3>Fensterhöhe und Breite</h3><pre>
+        Höhe   <input name="hoehe" id="hoehe" size="4" value="0" /><br />
+        Breite <input name="breite" id="breite" size="4" value="0" /><br />
+        </pre>
+        <br />
+    
+        <button onclick="saveVals()">Speichern & ändern</button>&nbsp;&nbsp;&nbsp;&nbsp;<button onclick="deleteVals()">RESET</button>
+    
+    
+    
+    </div>
+    
+</div>
+
+<script>
+
+// globale variablen
+h = document.getElementById('hoehe');
+b = document.getElementById('breite')
+
+function saveVals() {
+	localStorage.setItem('hoehe', h.value);
+	localStorage.setItem('breite', b.value);	
+	setCSS();
+}
+
+
+function loadVals() {
+	if (localStorage.getItem('hoehe')) {	
+		h.value = localStorage.getItem('hoehe');
+		b.value = localStorage.getItem('breite');	
+	} else {
+		alert ("Bisher keine lokalen Werte gespeichert. Standardwerte werden geladen");
+		h.value = 400;
+		b.value = 600;			
+	}
+	setCSS();
+}
+
+
+function setCSS() {
+	document.getElementById('box').style.height = h.value + "px";
+	document.getElementById('box').style.width = b.value + "px";
+}
+
+function deleteVals() {
+	localStorage.clear();
+	loadVals();
+
+}
+
+loadVals();
+
+</script>
+
+
+
+
+</body>
+</html>

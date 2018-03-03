@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<widget xmlns = "http://www.w3.org/ns/widgets"
+ xmlns:gap = "http://phonegap.com/ns/3.5"
+ id = "com.muellers.akkordlerapp"
+ versionCode = "1.6"
+ version = "1.0">
+
+ <icon src="graphic/icon57.png" gap:platform="ios" width="57" height="57" />
+ <icon src="graphic/icon72.png" width="72" height="72" />
+ <icon src="graphic/icon114.png" with="114" height="114" />
+ 
+ <name>Akkordler</name>
+ <description>App um Akkordler Minuten und Prozente schneller auszurechnen</description>
+ <author email="xampersand@web.de">
+ Oliver Mueller und Linux
+ </author>
+ </widget>

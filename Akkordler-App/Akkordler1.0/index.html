@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+
+<!-- Author Oliver Mueller 01.02.2017
+		bitte verzeiht mir, das ist eins meiner ersten Codes
+			ich versuche mich zu bessern. -->
+			
+
+<html lang="de">
+		<head>
+		
+		        <link href='https://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+				<title>Akkordler-App</title>
+				
+    			    <!-- jQuery (wird für Bootstrap JavaScript-Plugins benötigt) -->
+    
+    <script src="js/jquery.min.js"> </script>
+    
+<!-- Das neueste kompilierte und minimierte CSS -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+
+<!-- Optionales Theme -->
+<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+
+<!-- Das neueste kompilierte und minimierte JavaScript -->
+<script src="js/bootstrap.min.js"></script>
+
+		<style>
+		
+				h1{
+				
+					font-family: 'Shadows Into Light', cursive;				
+					font-size: 100%;
+					
+				}
+			
+				#jumbotron{
+					
+					background: url(clock.jpg) no-repeat top center fixed;	
+					text-align: center;
+					color: orangered;
+					
+				}
+				
+				#rahmen{
+				
+					background-color: orange;
+					text-align: center;
+					box-shadow: 12px 12px 6px grey;
+					border-radius: 10px;
+				}
+				
+				label{
+				
+					font-weight: bold;
+					font-size: 20px;
+					color: orangered;
+				
+				}
+
+				#minuten{
+				
+					text-align: center;
+					color: orangered;				
+					font-weight: bold;
+				}
+				
+				#prozent{
+				
+					text-align: center;
+					color: orangered;				
+					font-weight: bold;
+				}
+				
+				#wunschPro{
+				
+					text-align: center;
+					color: orangered;				
+					font-weight: bold;
+				}
+				
+				#mehrZ{
+				
+					text-align: center;
+					color: orangered;				
+					font-weight: bold;
+				}
+				
+				#gesamtP{
+				
+					text-align: center;
+					color: orangered;				
+					font-weight: bold;
+				}
+				
+				#gesamtZ{
+				
+					text-align: center;
+					color: orangered;				
+					font-weight: bold;
+				}
+				
+					p{
+				
+					font-family: 'Shadows Into Light', cursive;				
+					font-size: 100%;
+				}
+				
+		
+
+		
+		</style>
+
+		</head>
+		<body>
+		
+<script type="text/javascript">
+
+</script>
+			
+			<div class="jumbotron" id="jumbotron">
+			
+				<p><h1>Deine</h1></p>
+			
+ 			 <h1>Akkordler-App<small><br>Minude Minude ;-)</small></h1></div>
+ 			 
+ 			 <div class="container" id="rahmen">
+ 			 
+			<form>
+  <div class="form-group">
+    <label for="minuten">Wieviel Minuten sind 100% ?</label>
+    <input type="number" autofocus class="form-control" id="minuten"  step="0.1" placeholder="Gib die Akkord Stunden ein:">
+  </div>
+  			 <button type="button" class="btn btn-warning" id="Minuten" onClick="hundertP()">ENTER</button>
+  			 
+  <div class="form-group">
+    <label for="prozent">Deine Akkord-Prozente ? </label>
+    <input type="number" class="form-control" id="prozent" step="000.001" placeholder="Gib die erreichten Minuten ein:">
+  </div>
+  			 <button type="button" class="btn btn-warning" id="Prozent" onClick="totalP()">ENTER</button>
+  			 
+  <div class="form-group">
+    <label for="wunschPro">Deine Wunschprozente ? </label>
+    <input type="number" class="form-control" id="wunschPro" min="100" step="1" placeholder="Wieviel % moechtest Du erreichen:">
+  </div>
+  			 <button type="button" class="btn btn-warning" id="WunschPro" onClick="wunschP()">ENTER</button> 
+  			 
+  <div class="form-group">
+    <label for="mehrZ">Noch Mehrzeit dazu ? </label>
+    <input type="number" class="form-control" id="mehrZ" step="5" placeholder="Gib hier die Minuten ein:">
+  </div>
+  			 <button type="button" class="btn btn-warning" id="MehrZeit" onClick="mehrZeit()">Minuten</button> 
+  			 <button type="button" class="btn btn-warning" id="MehrProz" onClick="mehrProzent()">Prozente</button> 
+
+					  			 
+  			 
+   <div class="form-group">
+    <label for="gesamtZ">Gesamt Minuten:</label>
+      <input type="number" class="form-control" id="gesamtZ" placeholder="Deine Gesamtminuten:">
+      </div>
+  
+  <div class="form-group">
+    <label for="gesamtP">Gesamt Prozent:</label>
+      <input type="number" class="form-control" id="gesamtP" placeholder="Deine GesamtProzent:">
+    </div>
+
+  			 
+  			 <div class="container" id="footer">			 
+  			 		
+  			 		<div class="container"  id="store">
+					
+					<div class="row">
+										<p>Mich gibts bei ----> ;-)</p>
+						<p><img src="graphic/GoggelPlay.png"></p></a>
+						
+					</div>	
+				</div>		
+			</div>
+		</div>  	
+  
+</form>
+		
+		<script type="text/javascript">
+		
+				function hundertP() {
+				
+				var minuten = parseFloat(document.getElementById("minuten").value);
+				hP = (minuten * 60).toFixed(0);
+				
+				document.getElementById("minuten").value=hP;
+					
+				}
+				
+				function totalP() {
+				
+				totalS = parseFloat(document.getElementById("prozent").value);
+				var p = Math.round(((totalS / hP) * 100)).toFixed(0);
+				
+				document.getElementById("prozent").value=p;
+					
+				}
+				
+				function wunschP() {
+				
+				var wunschPro = parseFloat(document.getElementById("wunschPro").value);
+				var wp = ((hP * wunschPro) / 100).toFixed(0);
+				
+				document.getElementById("wunschPro").value=wp;
+					
+				}
+				
+				function mehrZeit() {
+				
+				var mehrZ = parseFloat(document.getElementById("mehrZ").value);
+				mZ = (totalS + mehrZ).toFixed(3);
+				
+				
+				document.getElementById("gesamtZ").value=mZ;
+				
+				}
+				
+				
+				function mehrProzent() {
+				
+				
+				var mehrP = Math.round(((mZ / hP) * 100)).toFixed(0);
+				
+				document.getElementById("gesamtP").value=mehrP;
+								
+					
+				}
+		
+		</script>
+	</body>
+	</html>
+	
